@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Browser UI</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <main>
+    <img  id="image"src="photos/pexels-bess-hamiti-83687-36487.jpg" alt="" />
+
+    <!-- Folder grid -->
+    <section class="grid-section">
+      <div class="folder">
+        <img id="file"src="photos/folder.png" alt="" />
+        <!-- <img src="photos/folder.png" alt="" />
+        <img src="photos/folder.png" alt="" />
+        <img src="photos/folder.png" alt="" />
+        <img src="photos/folder.png" alt="" /> -->
+      </div>
+    </section>
+
+    <!-- Taskbar -->
+    <section class="taskbar_class">
+      <div class="taskbar">
+        <button><img src="photos/menu.png" id="menu" alt=""></button>
+
+        <div class="group">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <g>
+              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g>
+          </svg>
+          <input placeholder="Search here" type="search" class="input" id="searchBtn" />
+        </div>
+
+        <section class="date_calender">
+          <div class="right">
+            <div><i class="ri-wifi-line"></i></div>
+            <div><i class="ri-mic-line"></i></div>
+            <div><i class="ri-battery-low-line"></i></div>
+
+            <div class="left">
+              <button class="btn" id="dateTimeBtn">
+                <span id="time">00:00</span> <br />
+                <span id="date">00-00-0000</span>
+              </button>
+            </div>
+            <input type="datetime-local" id="picker" style="display: none;" />
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="search-section">
+ 
+  <!-- Hidden Search Dialog -->
+
+   <input type="text"placeholder="🔍Quick search" />
+    <div class="recent">
+      <h3>Recent</h3>
+      <ul>
+        <li><img src="photos/setting.png" alt=""> Settings </li>
+        <li id="Github"><img src="photos/github.png" alt=""> Github</li>
+        <li id="cmdLaunch"><img src="photos/icons8-command-prompt-80.png" alt="">Cmd</li>
+        <li id="linkedin"><img src="photos/linkedin.png" alt="">Linkedin</li>
+        <li id="brave"><img src="photos/brave_browser_logo_icon_153013.png" alt="">Brave</li>
+      </ul>
+  
+  </div>
+</section>
+
+<section class="cmd" id="cmdWindow">
+  <div class="container">
+    <h5>Command Prompt</h5>
+    <div class="cmdbody" id="cmdOutput">
+
+    </div>
+    <input type="text" id="cmdInput"placeholder="Type a command...." autofocus/>
+  </div>
+  
+</section>
+
+<section class="context-wrapper">
+  <div class="context-menu" id="contextMenu">
+    <ul>
+      <li><i class="ri-eye-line"></i> View</li>
+      <li><i class="ri-clipboard-line"></i> Paste</li>
+      <li><i class="ri-sort-desc"></i> Sort by</li>
+      <li id="refreshBtn"><i class="ri-refresh-line"></i> Refresh</li>
+      <hr>
+      <li><i class="ri-arrow-go-back-line"></i> Undo delete</li>
+       <li class="has-submenu" id="newBtn">
+          <i class="ri-add-line"></i> New
+          <ul class="submenu" id="newSubmenu">
+            <li><i class="ri-folder-line"></i> Folder</li>
+            <li><i class="ri-link"></i> Shortcut</li>
+            <li><i class="ri-file-text-line"></i> Text Document</li>
+            <li><i class="ri-file-excel-2-line"></i> Excel Worksheet</li>
+            <li><i class="ri-file-word-2-line"></i> Word Document</li>
+            <li><i class="ri-archive-line"></i> Compressed Folder</li>
+          </ul>
+        </li>
+      <hr>
+      <li><i class="ri-computer-line"></i> Display settings</li>
+      <li><i class="ri-brush-line"></i> Personalize</li>
+      <li><i class="ri-terminal-line"></i> Open in terminal</li>
+      <li><i class="ri-more-line"></i> Show more options</li>
+    </ul>
+  </div>
+</section>
+<section class="Start-menu">
+<div  id="startGrid">
+  <div id="edgeIcon" class="peg">
+    <img src="https://img.icons8.com/color/48/000000/ms-edge-new.png" alt="Edge" />
+    <span>Edge</span>
+  </div>
+  
+  <div class="peg">
+    <img src="https://img.icons8.com/fluency/48/000000/microsoft-excel-2019.png" alt="Excel" />
+    <span>Excel</span>
+  </div>
+  <div class="peg">
+    <img src="https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019.png" alt="PowerPoint" />
+    <span>PowerPoint</span>
+  </div>
+  
+  <div class="peg">
+    <img src="photos/gallery.png" alt="Photos" />
+    <span>Photos</span>
+  </div>
+ 
+  <div class="peg">
+    <img src="https://img.icons8.com/fluency/48/000000/share.png" alt="GlideX" />
+    <span>GlideX</span>
+  </div>
+  <div class="peg">
+    <img src="https://img.icons8.com/color/48/000000/settings.png" alt="Settings" />
+    <span>Settings</span>
+  </div>
+  <div class="peg">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" />
+    <span>WhatsApp</span>
+  </div>
+  <div class="peg">
+    <img src="https://img.icons8.com/fluency/48/000000/film-reel.png" alt="Clipchamp" />
+    <span>Clipchamp</span>
+  </div>
+
+  <div class="peg">
+    <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn" />
+    <span>LinkedIn</span>
+  </div>
+  <div class="peg">
+    <img src="https://img.icons8.com/fluency/48/000000/calculator.png" alt="Calculator" />
+    <span>Calculator</span>
+  </div>
+  <div class="peg">
+    <img src="https://img.icons8.com/fluency/48/000000/notepad.png" alt="Notepad" />
+    <span>Notepad</span>
+  </div>
+  <div class="peg">
+    <img src="https://img.icons8.com/fluency/48/000000/paint-palette.png" alt="Paint" />
+    <span>Paint</span>
+  </div>
+  <div class="peg">
+    <img src="https://img.icons8.com/color/48/000000/scissors.png" alt="Snipping Tool" />
+    <span>Snipping Tool</span>
+  </div>
+  <div class="peg">
+    <img src="photos/note.png" alt="OneNote" />
+    <span>OneNote</span>
+  </div>
+  <div class="peg">
+    <img src="photos/camera.png" alt="OneNote" />
+    <span>Camera</span>
+  </div>
+</section>
+
+
+
+  </main>
+
+  <script src="script.js"></script>
+  <script src="contextmenu.js"></script>
+  <script src="window_menu.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Record Video with MediaRecorder</title>
+  <style>
+    video {
+      display: block;
+      margin: 10px auto;
+      border: 2px solid black;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">🎥 Record Video Demo</h2>
+
+  <video id="video" width="400" autoplay muted></video>
+  <video id="playback" width="400" controls style="display:none;"></video>
+  <br>
+  <div style="text-align:center;">
+    <button onclick="startCamera()">Start Camera</button>
+    <button onclick="startRecording()">Start Recording</button>
+    <button onclick="stopRecording()">Stop Recording</button>
+  </div>
+  <div id="downloadArea" style="text-align:center; margin-top:20px;"></div>
+
+  <script>
+    const video = document.getElementById("video");
+    const playback = document.getElementById("playback");
+    let mediaRecorder;
+    let recordedChunks = [];
+
+    async function startCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        video.srcObject = stream;
+
+        mediaRecorder = new MediaRecorder(stream);
+
+        mediaRecorder.ondataavailable = function (event) {
+          if (event.data.size > 0) {
+            recordedChunks.push(event.data);
+          }
+        };
+
+        mediaRecorder.onstop = function () {
+          const blob = new Blob(recordedChunks, { type: "video/webm" });
+          const url = URL.createObjectURL(blob);
+
+          // Show in video player
+          playback.src = url;
+          playback.style.display = "block";
+
+          // Create download link
+          const downloadLink = document.createElement("a");
+          downloadLink.href = url;
+          downloadLink.download = "my_recorded_video.webm";
+          downloadLink.textContent = "📥 Download Video";
+          downloadLink.style.display = "block";
+
+          document.getElementById("downloadArea").innerHTML = "";
+          document.getElementById("downloadArea").appendChild(downloadLink);
+
+          // Reset
+          recordedChunks = [];
+        };
+      } catch (err) {
+        alert("Camera access denied or error: " + err.message);
+        console.error(err);
+      }
+    }
+
+    function startRecording() {
+      if (mediaRecorder && mediaRecorder.state === "inactive") {
+        mediaRecorder.start();
+        alert("🎥 Recording started!");
+      }
+    }
+
+    function stopRecording() {
+      if (mediaRecorder && mediaRecorder.state === "recording") {
+        mediaRecorder.stop();
+        alert("🛑 Recording stopped.");
+      }
+    }
+  </script>
+
+</body>
+</html>

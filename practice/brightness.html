@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full Screen Brightness Control</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: sans-serif;
+    }
+
+    /* Full screen OS area */
+    #screen {
+      height: 100%;
+      width: 100%;
+      background-image: url('https://picsum.photos/1920/1080');
+      background-size: cover;
+      background-position: center;
+      transition: filter 0.3s ease;
+      padding: 20px;
+      color: white;
+    }
+
+    .slider-group {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      color: white;
+    }
+
+    input[type="range"] {
+      width: 200px;
+    }
+
+    h1 {
+      text-shadow: 2px 2px 4px #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your fake Windows OS screen -->
+  <div id="screen">
+    <h1>🖥️ My Windows OS UI</h1>
+    <p>You can dim or brighten the whole screen using the slider below.</p>
+  </div>
+
+  <!-- Brightness slider -->
+  <div class="slider-group">
+    <label for="brightnessSlider">☀️ Brightness</label><br>
+    <input id="brightnessSlider" type="range" min="50" max="150" value="100">
+  </div>
+
+  <script>
+    const slider = document.getElementById("brightnessSlider");
+    const screen = document.getElementById("screen");
+
+    slider.addEventListener("input", function () {
+      const value = slider.value;
+      screen.style.filter = `brightness(${value}%)`;
+    });
+  </script>
+
+</body>
+</html>

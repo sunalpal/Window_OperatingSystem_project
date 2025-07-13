@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Windows Quick Settings</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+  background-color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.quick-settings {
+  width: 300px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tile {
+  flex: 1;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #eee;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.tile.active {
+  background-color: #005b6d;
+  color: white;
+}
+
+.slider-group {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.slider-group label {
+  width: 20px;
+}
+
+.slider-group input[type="range"] {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.battery-info {
+  text-align: left;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="quick-settings">
+  <div class="row">
+    <button class="tile active">📶<br>realme 8s 5G</button>
+    <button class="tile">🔵<br>Bluetooth</button>
+    <button class="tile">✈️<br>Airplane mode</button>
+  </div>
+  <div class="row">
+    <button class="tile active">🔋<br>Energy saver</button>
+    <button class="tile">🌙<br>Night light</button>
+    <button class="tile">🧍<br>Accessibility</button>
+  </div>
+
+  <div class="slider-group">
+    <label>☀️</label>
+    <input type="range" min="0" max="100" value="50">
+  </div>
+
+  <div class="slider-group">
+    <label>🔊</label>
+    <input type="range" min="0" max="100" value="70">
+  </div>
+
+  <div class="battery-info">🔋 29%</div>
+</div>
+<script>
+  document.querySelectorAll(".tile").forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+    });
+  });
+</script>
+
+</body>
+</html>

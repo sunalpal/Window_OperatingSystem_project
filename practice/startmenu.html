@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Windows 11 Start Menu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: url('https://images.unsplash.com/photo-1549921296-3c38fc5d1052') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .start-menu {
+      width: 650px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .section h3 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .app {
+      background: #e0e0e0;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .app:hover {
+      background: #d0d0d0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .recommended ul li {
+      margin: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+    }
+
+    .user img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .power {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .power:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="start-menu">
+    <input type="text" class="search-bar" placeholder="Search for apps, settings, and documents" />
+
+    <div class="section pinned">
+      <h3>Pinned</h3>
+      <div class="grid">
+        <div class="app">Edge</div>
+        <div class="app">Word</div>
+        <div class="app">Excel</div>
+        <div class="app">PowerPoint</div>
+        <div class="app">Outlook</div>
+        <div class="app">Store</div>
+        <div class="app">Photos</div>
+        <div class="app">MyASUS</div>
+        <div class="app">GlideX</div>
+        <div class="app">Settings</div>
+        <div class="app">WhatsApp</div>
+        <div class="app">Clipchamp</div>
+        <div class="app">LinkedIn</div>
+        <div class="app">Calculator</div>
+        <div class="app">Notepad</div>
+        <div class="app">Paint</div>
+        <div class="app">Snipping Tool</div>
+        <div class="app">OneNote</div>
+      </div>
+    </div>
+
+    <div class="section recommended">
+      <h3>Recommended</h3>
+      <ul>
+        <li><strong>Audacity</strong> <span>Recently added</span></li>
+        <li><strong>Command Prompt</strong> <span>Frequently used app</span></li>
+        <li><strong>Cursor</strong> <span>Recently added</span></li>
+        <li><strong>searchicon</strong> <span>6h ago</span></li>
+        <li><strong>chrome</strong> <span>6h ago</span></li>
+        <li><strong>linkedin</strong> <span>6h ago</span></li>
+      </ul>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="user">
+        <img src="https://via.placeholder.com/40" alt="User" />
+        <span>sunal pal</span>
+      </div>
+      <div class="power">⏻</div>
+    </div>
+  </div>
+
+  <script>
+    // Optional JS logic
+    document.querySelector('.search-bar').addEventListener('input', function (e) {
+      const search = e.target.value.toLowerCase();
+      document.querySelectorAll('.app').forEach(app => {
+        app.style.display = app.textContent.toLowerCase().includes(search) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

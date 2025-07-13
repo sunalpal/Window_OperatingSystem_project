@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Windows OS</title>
+  <style>
+    #desktop {
+      height: 100vh;
+      background-color: #3a3a3a;
+      padding: 10px;
+      position: relative;
+    }
+    .file {
+      width: 80px;
+      text-align: center;
+      background-color: #ffffff50;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+    }
+    .file input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="createFile()">📝 New File</button>
+<div id="desktop"></div>
+<script>
+    let fileCount = 0;
+
+function createFile() {
+  const desktop = document.getElementById("desktop");
+
+  const file = document.createElement("div");
+  file.classList.add("file");
+
+  file.style.left = `${10 + fileCount * 90}px`;
+  file.style.top = "10px";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.value = `NewFile${fileCount + 1}`;
+  input.readOnly = true;
+
+  file.appendChild(input);
+  desktop.appendChild(file);
+
+  fileCount++;
+
+  // Double click to rename
+  input.addEventListener("dblclick", () => {
+    input.readOnly = false;
+    input.focus();
+  });
+
+  // Blur (click outside) to finish rename
+  input.addEventListener("blur", () => {
+    input.readOnly = true;
+    if (input.value.trim() === "") {
+      input.value = `NewFile${fileCount}`;
+    }
+  });
+
+  // Press Enter to finish rename
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      input.readOnly = true;
+      input.blur();
+    }
+  });
+}
+
+</script>
+</body>
+</html>
