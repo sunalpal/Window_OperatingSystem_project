@@ -134,3 +134,31 @@ document.getElementById("file").addEventListener("click",()=>{
  const newbtn= document.createElement('button')
     newbtn.innerHTML='<i class="fas fa-file"></i> I am a new button';
 })
+
+
+
+//calculator logic 
+
+document.getElementById('calculator').addEventListener("click",()=>{
+  window.open("calculator/calculator.html",'_self')
+})
+
+
+
+// live walpaper 
+
+const walpapers=[
+"photos/window-1.avif",
+"photos/window-2.avif",
+"photos/window-3.avif",
+"photos/window-4.avif",
+"photos/window-5.avif",
+"photos/window-6.avif",
+]
+let currentImage=0;
+
+setInterval(()=>{
+  currentImage=(currentImage+1)%walpapers.length;
+  document.getElementById('image').src=walpapers[currentImage];
+  
+},6000)
